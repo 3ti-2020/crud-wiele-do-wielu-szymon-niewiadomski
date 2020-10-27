@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+}
+
+body{
+    width:100vw;
+    min-height: 100vh;
+    background: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+tr:nth-child(odd){
+    background: rgba(255,255,255, .3);
+}
+tr:nth-child(even){
+    background: rgba(255,255,255, .6);
+}
+td:first-child{
+    text-align: center;
+}
+td, th{
+    padding: 1rem;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,.4);
+}
