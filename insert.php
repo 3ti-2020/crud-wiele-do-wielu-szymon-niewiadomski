@@ -29,10 +29,12 @@ if(isset($_POST['name'])){
     $existAutor = existInDB($sqlAutor);
 
     if($existAutor == false){
-      if(addToDB("INSERT into autorzy VALUES (NULL, '$name', '$lastname')")) $autorID = $db->insert_id;
-      else {
-          echo 'Błąd sqlAddAutor';
-          exit();
+        if(addToDB("INSERT into autorzy VALUES (NULL, '$name', '$lastname')")){ 
+            $autorID = $db->insert_id;
+        }
+        else {
+            echo 'Błąd sqlAddAutor';
+            exit();
         }
     } else $autorID = $existAutor;
 

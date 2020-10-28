@@ -11,7 +11,7 @@
 </head>
 <body>
     <header class="header">
-        <h1>Szymon Niewiadomski</h1>
+        <h1>Szymon Niewiadomski Grp2</h1>
         <h3>Biblioteka</h3>
     </header>
     <aside class="aside">
