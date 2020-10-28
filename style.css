@@ -63,22 +63,21 @@ td, th{
 }
 .insert form{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
-    width: 500px;
+    align-items: center;
+    width: 100%;
 }
 .input{
-    flex-basis: 40%;
-    margin: .4rem;
-    padding: 1rem;
+    margin: .4rem 0;
+    padding: .4rem;
     border-radius: 6px;
     border: 1px solid black;
 
 }
 .button{
-    margin: .4rem;
-    padding: 1rem;
-    flex-basis: 60%;
+    margin: .4rem 0;
+    padding: .5rem;
     background: orangered;
     border: 1px solid aliceblue;
     border-radius: 6px;
