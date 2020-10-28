@@ -13,7 +13,7 @@ body{
     background: orange;
     display: grid;
     grid-template: 200px 1fr / 200px 1fr;
-    grid-template-areas: "a a" "c b";
+    grid-template-areas: "a a" "b c";
     font-size: 1.6rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
