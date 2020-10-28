@@ -1,5 +1,6 @@
 <?php
 
-$db = new mysqli('localhost', 'root', '', 'tsiai');
+$db = new mysqli('hs5.linux.pl', 'niewiado_skillmon', 'Pokemon123', 'szkola');
+
 
 ?>
