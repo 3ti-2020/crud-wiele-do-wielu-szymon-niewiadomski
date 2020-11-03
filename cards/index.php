@@ -14,7 +14,7 @@
 </head>
 <body>
     <nav class="nav">
-        <a href="../index.php">Strona główna</a>
+        <a href="../index.php">Biblioteka</a>
         <a href="logout.php">Wyloguj się</a>
         <a href="https://github.com/3ti-2020/crud-wiele-do-wielu-szymon-niewiadomski">Github</a>
         
