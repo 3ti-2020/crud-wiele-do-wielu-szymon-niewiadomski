@@ -13,7 +13,7 @@
     <header class="header">
         <h1>Szymon Niewiadomski Grp2</h1>
         <h3>Biblioteka</h3>
-        <h6><a href="cards/index.html">karty</a></h6>
+        <h4><a href="cards/index.html">karty</a></h4>
     </header>
     <aside class="aside">
         <div class="insert">

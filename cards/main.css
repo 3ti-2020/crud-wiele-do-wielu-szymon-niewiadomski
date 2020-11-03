@@ -85,18 +85,6 @@ body{
     font-weight: 500;
 }
 
-/* #tokyoTower .card-image{
-    background: url("img/tokyo_tower.jpg");
-}
-
-#tokyoTower .date{
-    color: rgb(238, 156, 34);
-}
-
-#tokyoTower .card-stats{
-    background: rgb(238, 156, 34);
-} */
-
 #mountainFuji .card-image{
     background: url("img/gora_fuji.jpg");
     background-size: 100% 100%;
@@ -104,11 +92,11 @@ body{
 }
 
 #mountainFuji .date{
-    color: rgb(238, 156, 34);
+    color: rgb(34, 122, 238);
 }
 
 #mountainFuji .card-stats{
-    background: rgb(238, 156, 34);
+    background: rgb(34, 122, 238);
 }
 
 #himejiCastle .card-image{
@@ -118,9 +106,9 @@ body{
 }
 
 #himejiCastle .date{
-    color: rgb(34, 122, 238);
+    color:  rgb(238, 156, 34);
 }
 
 #himejiCastle .card-stats{
-    background: rgb(34, 122, 238);
+    background:  rgb(238, 156, 34);
 }
