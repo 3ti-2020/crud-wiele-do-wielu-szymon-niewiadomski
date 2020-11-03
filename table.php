@@ -1,13 +1,13 @@
 <?php
     require_once 'connect.php';
 
-    function createTable($sql){
+    function createTable($sql, $columns){
         global $db;
 
         $result = $db->query($sql);
         if($result){
             $rows = $result->fetch_all(MYSQLI_ASSOC);
-            $keys = array_keys($rows[0]);
+            $keys = $columns;
             echo '<table>';
                 echo '<tr>';
                     foreach($keys as $key){
