@@ -112,3 +112,22 @@ body{
 #himejiCastle .card-stats{
     background:  rgb(238, 156, 34);
 }
+.nav{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background-color: black;
+}
+
+.nav a{
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    transition: 250ms;
+    text-align: center;
+}
+
+.nav a:hover{
+    background: grey;
+}

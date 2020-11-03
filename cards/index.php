@@ -13,7 +13,12 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <a href=""></a>
+    <nav class="nav">
+        <a href="../index.php">Strona główna</a>
+        <a href="logout.php">Wyloguj się</a>
+        <a href="https://github.com/3ti-2020/crud-wiele-do-wielu-szymon-niewiadomski">Github</a>
+        
+    </nav>
     <div class="cards">
         <div class="card" id="tokyoTower">
             <div class="card-image"></div>

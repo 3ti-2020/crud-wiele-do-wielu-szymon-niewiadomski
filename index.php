@@ -13,8 +13,11 @@
     <header class="header">
         <h1>Szymon Niewiadomski Grp2</h1>
         <h3>Biblioteka</h3>
-        <h4><a href="cards/index.php">karty</a></h4>
     </header>
+    <nav class="nav">
+        <a href="https://github.com/3ti-2020/crud-wiele-do-wielu-szymon-niewiadomski">Github</a>
+        <a href="cards/index.php">Karty</a>
+    </nav>
     <aside class="aside">
         <div class="insert">
             <form action="insert.php" method="post" autocomplete="off" >
