@@ -26,7 +26,7 @@
     </aside>
     <main class="main">
         <div class="library">
-            <?php createTable("SELECT * from autorzy, tytuly, ksiazki WHERE autorzy.id_autor = ksiazki.id_autor AND tytuly.id_tytul = ksiazki.id_tytul", ["imie, nazwisko, tytul"]);?>
+            <?php createTable("SELECT * from autorzy, tytuly, ksiazki WHERE autorzy.id_autor = ksiazki.id_autor AND tytuly.id_tytul = ksiazki.id_tytul", ["imie", "nazwisko", "tytul"]);?>
         </div>
     </main>
 </body>
