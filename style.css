@@ -83,3 +83,12 @@ td, th{
     border-radius: 6px;
     color: aliceblue;
 }
+.delete-btn{
+    padding: 1rem;
+    background: orangered;
+    color: aliceblue;
+    border: none;
+}
+.delete-btn:hover, .delete-button:hover, .button:hover{
+    background: red;
+}

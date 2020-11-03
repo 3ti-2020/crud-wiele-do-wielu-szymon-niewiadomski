@@ -19,7 +19,20 @@
                     echo '<tr>';
                     foreach($keys as $key){
                         echo '<td>'.$row[$key].'</td>';
+                        
                     }
+
+                    if(in_array("id_autor", $keys) && in_array("id_ksiazka", $keys) && in_array("id_tytul", $keys)){
+                        echo '<td class="form-column">
+                            <form method="post" action="delete.php" class="form-table">
+                                <input type="hidden" name="id_ksiazka" value="'.$row['id_ksiazka'].'">
+                                <input type="hidden" name="id_autor" value="'.$row['id_autor'].'">
+                                <input type="hidden" name="id_tytul" value="'.$row['id_tytul'].'">
+                                <input type="submit" value="USUŃ" class="delete-btn">
+                            </form>
+                        </td>';
+                    }
+                    
                     echo '</tr>';
                 }
             echo '</table>';
