@@ -96,14 +96,19 @@ td, th{
 .nav{
     grid-area: d;
     background: rgba(255,255,255,.3);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav a{
     padding: 0 1rem;
     color: black;
     text-decoration: none;
-    transition: 400ms;
+    transition: letter-spacing 400ms;
+    display: block;
+    font-family: arial;
+    font-size: 20px;
 }
 
 .nav a:hover{

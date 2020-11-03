@@ -29,7 +29,7 @@ if(isset($_SESSION['logged']))
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <form method="post">
+    <form method="post" class="login-form">
         <label for="username">Nazwa użytkownika</label>
         <input type="text" name="username">
         <label for="password">Hasło</label>
