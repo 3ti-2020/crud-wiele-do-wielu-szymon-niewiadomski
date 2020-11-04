@@ -29,16 +29,16 @@
             </div>
             <div class="card-stats">
                 <div class="stat">
-                    <div class="value">2m</div>
-                    <div class="type">read</div>
+                    <div class="value">4/5</div>
+                    <div class="type">OCENA</div>
                 </div>
                 <div class="stat">
                     <div class="value">2137</div>
-                    <div class="type">views</div>
+                    <div class="type">WYŚWIETLEŃ</div>
                 </div>
                 <div class="stat">
                     <div class="value">12</div>
-                    <div class="type">comments</div>
+                    <div class="type">KOMENTARZY</div>
                 </div>
             </div>
         </div>
@@ -51,16 +51,16 @@
             </div>
             <div class="card-stats">
                 <div class="stat">
-                    <div class="value">5m</div>
-                    <div class="type">read</div>
+                    <div class="value">5/5</div>
+                    <div class="type">OCENA</div>
                 </div>
                 <div class="stat">
                     <div class="value">4500</div>
-                    <div class="type">views</div>
+                    <div class="type">WYŚWIETLEŃ</div>
                 </div>
                 <div class="stat">
                     <div class="value">53</div>
-                    <div class="type">comments</div>
+                    <div class="type">KOMENTARZY</div>
                 </div>
             </div>
         </div>
@@ -73,16 +73,16 @@
             </div>
             <div class="card-stats">
                 <div class="stat">
-                    <div class="value">2m</div>
-                    <div class="type">read</div>
+                    <div class="value">5/5</div>
+                    <div class="type">OCENA</div>
                 </div>
                 <div class="stat">
                     <div class="value">12343</div>
-                    <div class="type">views</div>
+                    <div class="type">WYŚWIETLEŃ</div>
                 </div>
                 <div class="stat">
                     <div class="value">133</div>
-                    <div class="type">comments</div>
+                    <div class="type">KOMENTARZY</div>
                 </div>
             </div>
         </div>
