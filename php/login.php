@@ -18,6 +18,6 @@ if(isset($_POST['username'])){
         $error = true;
 }
 
-//header('Location: ../index.php');
+header('Location: ../index.php');
 ?>
 
