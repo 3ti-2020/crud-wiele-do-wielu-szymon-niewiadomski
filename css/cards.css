@@ -28,7 +28,7 @@ body{
 
 .card-image{
     grid-area: image;
-    background: url("img/tokyo_tower.jpg");
+    background: url("../img/tokyo_tower.jpg");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-position: center;
@@ -86,7 +86,7 @@ body{
 }
 
 #mountainFuji .card-image{
-    background: url("img/gora_fuji.jpg");
+    background: url("../img/gora_fuji.jpg");
     background-size: 100% 100%;
 
 }
@@ -100,7 +100,7 @@ body{
 }
 
 #himejiCastle .card-image{
-    background: url("img/zamek_himejo.jpg");
+    background: url("../img/zamek_himejo.jpg");
     background-size: 100% 100%;
 
 }

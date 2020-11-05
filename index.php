@@ -1,6 +1,8 @@
 <?php
 session_start();
     require_once 'php/table.php';
+    if(isset($_SESSION['admin']))
+        echo $_SESSION['admin'];
 ?>
 <!DOCTYPE html>
 <html lang="pl">
