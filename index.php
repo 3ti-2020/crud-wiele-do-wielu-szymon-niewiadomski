@@ -18,7 +18,7 @@ session_start();
     <nav class="nav">
         <a href="https://github.com/3ti-2020/crud-wiele-do-wielu-szymon-niewiadomski">Github</a>
         <a href="cards.php">Karty</a>
-        <?php if(isset($_SESSION['logged'])) echo '<a href="logout.php">Wyloguj się</a>'; ?>
+        <?php if(isset($_SESSION['logged'])) echo '<a href="php/logout.php">Wyloguj się</a>'; ?>
     </nav>
     <aside class="aside">
         <?php if(!isset($_SESSION['logged'])){?>
@@ -37,7 +37,7 @@ session_start();
             </form>
 
         <?php }?>
-        <?php if(isset($_SESSION['logged']) && $_SESSION['admin']){?>
+        <?php if(isset($_SESSION['logged'])){?>
         <div class="insert">
             <form action="php/insert.php" method="post" autocomplete="off" >
                 <input type="text" name="name" class="input" placeholder="Imię" required>

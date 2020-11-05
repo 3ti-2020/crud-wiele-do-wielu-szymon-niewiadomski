@@ -13,7 +13,7 @@
 <body>
     <nav class="nav">
         <a href="index.php">Biblioteka</a>
-        <?php if(isset($_SESSION['logged'])) echo '<a href="logout.php">Wyloguj się</a>'; ?>
+        <?php if(isset($_SESSION['logged'])) echo '<a href="php/logout.php">Wyloguj się</a>'; ?>
         <a href="https://github.com/3ti-2020/crud-wiele-do-wielu-szymon-niewiadomski">Github</a>  
     </nav>
     <div class="cards">
