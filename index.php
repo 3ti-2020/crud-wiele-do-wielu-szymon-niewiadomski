@@ -1,6 +1,6 @@
 <?php
 session_start();
-    require_once './table.php';
+    require_once 'php/table.php';
 ?>
 <!DOCTYPE html>
 <html lang="pl">
