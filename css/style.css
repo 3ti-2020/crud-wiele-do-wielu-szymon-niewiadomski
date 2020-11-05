@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+}
+
+body{
+    width:100vw;
+    min-height: 100vh;
+    background: orange;
+    display: grid;
+    grid-template: 200px 40px 1fr / 200px 1fr;
+    grid-template-areas: "a a" "d d" "b c";
+    font-size: 1.6rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.header{
+    grid-area: a;
+    background: orangered;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    letter-spacing: 2px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.aside{
+    grid-area: b;
+    background: rgba(0,0,0,.4);
+    display: flex;
+    justify-content: center;
+}
+.main{
+    grid-area: c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    
+}
+tr:nth-child(odd){
+    background: rgba(255,255,255, .3);
+}
+tr:nth-child(even){
+    background: rgba(255,255,255, .6);
+}
+td:first-child{
+    text-align: center;
+}
+td, th{
+    padding: 1rem;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,.4);
+}
+
+.insert{
+    margin-top: 2rem;
+}
+.insert form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.input{
+    margin: .4rem 0;
+    padding: .4rem;
+    border-radius: 6px;
+    border: 1px solid black;
+
+}
+.button{
+    margin: .4rem 0;
+    padding: .5rem;
+    background: orangered;
+    border: 1px solid aliceblue;
+    border-radius: 6px;
+    color: aliceblue;
+}
+.delete-btn{
+    padding: 1rem;
+    background: orangered;
+    color: aliceblue;
+    border: none;
+}
+.delete-btn:hover, .delete-button:hover, .button:hover{
+    background: red;
+}
+
+.nav{
+    grid-area: d;
+    background: rgba(255,255,255,.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav a{
+    padding: 0 1rem;
+    color: black;
+    text-decoration: none;
+    transition: letter-spacing 400ms;
+    display: block;
+    font-family: arial;
+    font-size: 20px;
+}
+
+.nav a:hover{
+    letter-spacing: 1px;
+}
