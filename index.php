@@ -21,7 +21,7 @@ session_start();
         <?php if(isset($_SESSION['logged'])) echo '<a href="logout.php">Wyloguj się</a>'; ?>
     </nav>
     <aside class="aside">
-        <?php if(isset($_SESSION['logged'])){?>
+        <?php if(!isset($_SESSION['logged'])){?>
             <form method="post" action="php/login.php" class="login-form">
                 <label for="username">Nazwa użytkownika</label>
                 <input type="text" name="username">
@@ -37,7 +37,7 @@ session_start();
             </form>
 
         <?php }?>
-        <?php if(isset($_SESSION['logged'])){?>
+        <?php if(isset($_SESSION['logged']) && $_SESSION['admin']){?>
         <div class="insert">
             <form action="php/insert.php" method="post" autocomplete="off" >
                 <input type="text" name="name" class="input" placeholder="Imię" required>
