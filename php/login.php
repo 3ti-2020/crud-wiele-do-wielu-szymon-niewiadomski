@@ -13,11 +13,12 @@ if(isset($_POST['username'])){
     if($result){
         $data = $result->fetch_assoc();
         $_SESSION['logged'] = true;
+        printf($data);
         $_SESSION['admin'] = $data['admin'];
     } else
         $error = true;
 }
 
-header('Location: ../index.php');
+//header('Location: ../index.php');
 ?>
 
