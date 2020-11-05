@@ -22,7 +22,7 @@ session_start();
                         echo '<td>'.$row[$key].'</td>';
                         
                     }
-                    if(isset($_SESSION['logged']) && $_SESSION['admin'])
+                    if(isset($_SESSION['logged']) && $_SESSION['admin'] == 1)
                         generateDeleteForm($row);
 
                     echo '</tr>';

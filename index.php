@@ -39,7 +39,7 @@ session_start();
             </form>
 
         <?php }?>
-        <?php if(isset($_SESSION['logged'])){?>
+        <?php if(isset($_SESSION['logged']) && $_SESSION['admin'] == 1){?>
         <div class="insert">
             <form action="php/insert.php" method="post" autocomplete="off" >
                 <input type="text" name="name" class="input" placeholder="Imię" required>

@@ -13,7 +13,6 @@ if(isset($_POST['username'])){
     if($result){
         $data = $result->fetch_assoc();
         $_SESSION['logged'] = true;
-        print_r($data);
         $_SESSION['admin'] = $data['admin'];
     } else
         $error = true;
