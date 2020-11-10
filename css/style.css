@@ -172,9 +172,16 @@ td, th{
 }
 
 .github img{
-    width: 100px;
+    width: 60px;
 }
 
 .users{
     color: white;
+}
+.users tr{
+    background: orangered;
+}
+
+.users tr:nth-child(odd){
+    background: orange;
 }
