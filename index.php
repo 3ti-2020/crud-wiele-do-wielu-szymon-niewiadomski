@@ -12,6 +12,10 @@ session_start();
 </head>
 <body>
     <header class="header">
+        <a href="https://github.com/3ti-2020/crud-wiele-do-wielu-szymon-niewiadomski" class="github">
+            <img src="img/github.png" alt="Github">
+        </a>
+
         <h1>Szymon Niewiadomski Grp2</h1>
         <h3>Biblioteka</h3>
     </header>
@@ -36,7 +40,7 @@ session_start();
                 ?>
             </form>
 
-            <table>
+            <table class="users">
                 <tr>
                     <th>Login</th><th>Hasło</th>
                 </tr>

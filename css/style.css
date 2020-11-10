@@ -164,3 +164,17 @@ td, th{
     text-align: center;
     opacity: 0.5;
 }
+
+.github{
+    position: absolute;
+    top: 10px;
+    left:10px;
+}
+
+.github img{
+    width: 100px;
+}
+
+.users{
+    color: white;
+}
