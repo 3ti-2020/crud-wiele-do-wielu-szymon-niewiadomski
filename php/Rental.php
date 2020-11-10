@@ -33,8 +33,11 @@ if(isset($_POST['action'])){
     $rental = new Rental($db);
 
     switch($_POST['action']){
-        case 'hire':
+        case 'rent':
             echo($rental->rentBook($_POST['id_ksiazka'], $_POST['id_user']));
+            break;
+        case 'return':
+            echo($rental->returnBook($_POST['id_wypozyczenie']));
             break;
     }
 

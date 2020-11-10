@@ -6,37 +6,39 @@
 
         $result = $db->query($sql);
         if($result){
-            $rows = $result->fetch_all(MYSQLI_ASSOC);
-            $keys = $columns;
-            echo '<table>';
-                echo '<tr>';
-                    foreach($keys as $key){
-                        echo "<th>$key</th>";
-                    }
-                echo '</tr>';
-
-                foreach($rows as $row){
+            if($result->num_rows > 0) {
+                $rows = $result->fetch_all(MYSQLI_ASSOC);
+                $keys = $columns;
+                echo '<table>';
                     echo '<tr>';
-                    foreach($keys as $key){
-                        echo '<td>'.$row[$key].'</td>';
-                        
-                    }
-
-                    if($type == "books"){
-                        if(isset($_SESSION['logged']) && $_SESSION['admin'] == 1)
-                            generateDeleteForm($row);
-
-                        if(isset($_SESSION['logged']) && $_SESSION['admin'] == 0)
-                            generateHireForm($row);
-                    }
-
-                    if($type == "rents"){
-                        
-                    }
-                    
+                        foreach($keys as $key){
+                            echo "<th>$key</th>";
+                        }
                     echo '</tr>';
-                }
-            echo '</table>';
+
+                    foreach($rows as $row){
+                        echo '<tr>';
+                        foreach($keys as $key){
+                            echo '<td>'.$row[$key].'</td>';
+                            
+                        }
+
+                        if($type == "books"){
+                            if(isset($_SESSION['logged']) && $_SESSION['admin'] == 1)
+                                generateDeleteForm($row);
+
+                            if(isset($_SESSION['logged']) && $_SESSION['admin'] == 0)
+                                generateRentForm($row);
+                        }
+
+                        if($type == "rents"){
+                            generateReturnForm($row);
+                        }
+                        
+                        echo '</tr>';
+                    }
+                echo '</table>';
+            } else echo '<h2 class="empty_table">Brak danych</h2>';
 
         } else echo $db->error;
     }
@@ -53,14 +55,26 @@
         </td>';
     }
 
-    function generateHireForm($row){
+    function generateRentForm($row){
         echo '<td class="form-column">
             <form method="post" action="php/Rental.php" class="form-table">
                 <input type="hidden" name="id_ksiazka" value="'.$row['id_ksiazka'].'">
                 <input type="hidden" name="id_user" value="'.$_SESSION['user'].'">
-                <input type="hidden" name="action" value="hire">
+                <input type="hidden" name="action" value="rent">
                 <input type="submit" value="Wypożycz" class="delete-btn">
             </form>
         </td>';
+    }
+
+    function generateReturnForm($row){
+        if($row['returned_date'] == null){
+            echo '<td class="form-column">
+                <form method="post" action="php/Rental.php" class="form-table">
+                    <input type="hidden" name="id_wypozyczenie" value="'.$row['id'].'">
+                    <input type="hidden" name="action" value="return">
+                    <input type="submit" value="Zwróć" class="delete-btn">
+                </form>
+            </td>';
+        }
     }
 ?>

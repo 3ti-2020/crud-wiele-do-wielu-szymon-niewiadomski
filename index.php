@@ -36,6 +36,21 @@ session_start();
                 ?>
             </form>
 
+            <table>
+                <tr>
+                    <th>Login</th><th>Hasło</th>
+                </tr>
+                <tr>
+                    <td>tom</td><td>a</td>
+                </tr>
+                <tr>
+                    <td>admin</td><td>a</td>
+                </tr>
+                <tr>
+                    <td>uczen</td><td>b</td>
+                </tr>
+            </table>
+
         <?php } else{
             echo '<div class="user">'.$_SESSION['name'].'</div>';
         }        
@@ -55,11 +70,16 @@ session_start();
     <main class="main">
         <div class="library">
             <div class="books">
-                <?php createTable("SELECT * from autorzy, tytuly, ksiazki WHERE autorzy.id_autor = ksiazki.id_autor AND tytuly.id_tytul = ksiazki.id_tytul", ["imie", "nazwisko", "tytul"], "books");?>
+                <h2>Dostępne książki</h2>
+                <?php createTable("SELECT * FROM ksiazki JOIN tytuly ON tytuly.id_tytul = ksiazki.id_tytul JOIN autorzy ON autorzy.id_autor = ksiazki.id_autor WHERE id_ksiazka NOT IN (SELECT book FROM wypozyczenia WHERE returned_date IS NULL)", ["imie", "nazwisko", "tytul"], "books");?>
             </div>    
             <?php 
-                if($_SESSION['logged'] && $_SESSION['admin'] == 0)
-                    echo '<div class="rents">'. createTable("SELECT * from wypozyczenia JOIN ksiazki ON wypozyczenia.book = ksiazki.id_ksiazka JOIN tytuly ON tytuly.id_tytul = ksiazki.id_tytul" , ['tytul, hire_date, returned_date'], "rents").'</div>';
+                if(isset($_SESSION['logged']) && $_SESSION['admin'] == 0){
+                    echo '<div class="rents">';
+                    echo '<h2>Wypożyczenia</h2>';
+                    echo createTable("SELECT * from wypozyczenia JOIN ksiazki ON wypozyczenia.book = ksiazki.id_ksiazka JOIN tytuly ON tytuly.id_tytul = ksiazki.id_tytul WHERE user = ".$_SESSION['user'] ." ORDER BY returned_date IS NULL DESC, hire_date DESC LIMIT 10" , ["tytul", "hire_date", "returned_date"], "rents");
+                    echo '</div>';
+                }
             ?>
         </div>
     </main>
