@@ -1,8 +1,7 @@
 <?php
-session_start();
     require_once 'connect.php';
 
-    function createTable($sql, $columns){
+    function createTable($sql, $columns, $type){
         global $db;
 
         $result = $db->query($sql);
@@ -22,14 +21,24 @@ session_start();
                         echo '<td>'.$row[$key].'</td>';
                         
                     }
-                    if(isset($_SESSION['logged']) && $_SESSION['admin'] == 1)
-                        generateDeleteForm($row);
 
+                    if($type == "books"){
+                        if(isset($_SESSION['logged']) && $_SESSION['admin'] == 1)
+                            generateDeleteForm($row);
+
+                        if(isset($_SESSION['logged']) && $_SESSION['admin'] == 0)
+                            generateHireForm($row);
+                    }
+
+                    if($type == "rents"){
+                        
+                    }
+                    
                     echo '</tr>';
                 }
             echo '</table>';
 
-        } else echo 'invalid sql';
+        } else echo $db->error;
     }
 
 
@@ -40,6 +49,17 @@ session_start();
                 <input type="hidden" name="id_autor" value="'.$row['id_autor'].'">
                 <input type="hidden" name="id_tytul" value="'.$row['id_tytul'].'">
                 <input type="submit" value="USUŃ" class="delete-btn">
+            </form>
+        </td>';
+    }
+
+    function generateHireForm($row){
+        echo '<td class="form-column">
+            <form method="post" action="php/Rental.php" class="form-table">
+                <input type="hidden" name="id_ksiazka" value="'.$row['id_ksiazka'].'">
+                <input type="hidden" name="id_user" value="'.$_SESSION['user'].'">
+                <input type="hidden" name="action" value="hire">
+                <input type="submit" value="Wypożycz" class="delete-btn">
             </form>
         </td>';
     }

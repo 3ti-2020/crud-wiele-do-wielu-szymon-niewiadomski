@@ -10,12 +10,14 @@ if(isset($_POST['username'])){
     $sql = "SELECT * from users WHERE username='$username' AND password='$password'";
 
     $result = $db->query($sql);
-    if($result){
+    if($result->num_rows == 1){
         $data = $result->fetch_assoc();
         $_SESSION['logged'] = true;
+        $_SESSION['name'] = $data['username'];
+        $_SESSION['user'] = $data['id'];
         $_SESSION['admin'] = $data['admin'];
     } else
-        $error = true;
+        $_SESSION['error'] = true;
 }
 
 header('Location: ../index.php');

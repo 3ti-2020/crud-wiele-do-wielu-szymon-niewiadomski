@@ -17,5 +17,4 @@ if(isset($_POST['id_autor'])){
     }
     
     header('Location: ../index.php');
-
 }

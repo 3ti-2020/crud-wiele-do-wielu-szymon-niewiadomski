@@ -1,8 +1,6 @@
 <?php
 session_start();
     require_once 'php/table.php';
-    if(isset($_SESSION['admin']))
-        echo $_SESSION['admin'];
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -31,16 +29,20 @@ session_start();
                 <input type="password" name="password">
                 <input type="submit" value="Zaloguj się">
                 <?php
-                if(isset($error) && $error = true){
+                if(isset($_SESSION['error'])){
                     echo "<span class='error'>Nieprawidłowe dane logowania</span>";
-                    unset($error);
+                    unset($_SESSION['error']);
                 }
                 ?>
             </form>
 
-        <?php }?>
+        <?php } else{
+            echo '<div class="user">'.$_SESSION['name'].'</div>';
+        }        
+        ?>
         <?php if(isset($_SESSION['logged']) && $_SESSION['admin'] == 1){?>
         <div class="insert">
+           
             <form action="php/insert.php" method="post" autocomplete="off" >
                 <input type="text" name="name" class="input" placeholder="Imię" required>
                 <input type="text" name="lastname" class="input" placeholder="Nazwisko" required>
@@ -52,7 +54,13 @@ session_start();
     </aside>
     <main class="main">
         <div class="library">
-            <?php createTable("SELECT * from autorzy, tytuly, ksiazki WHERE autorzy.id_autor = ksiazki.id_autor AND tytuly.id_tytul = ksiazki.id_tytul", ["imie", "nazwisko", "tytul"]);?>
+            <div class="books">
+                <?php createTable("SELECT * from autorzy, tytuly, ksiazki WHERE autorzy.id_autor = ksiazki.id_autor AND tytuly.id_tytul = ksiazki.id_tytul", ["imie", "nazwisko", "tytul"], "books");?>
+            </div>    
+            <?php 
+                if($_SESSION['logged'] && $_SESSION['admin'] == 0)
+                    echo '<div class="rents">'. createTable("SELECT * from wypozyczenia JOIN ksiazki ON wypozyczenia.book = ksiazki.id_ksiazka JOIN tytuly ON tytuly.id_tytul = ksiazki.id_tytul" , ['tytul, hire_date, returned_date'], "rents").'</div>';
+            ?>
         </div>
     </main>
 </body>
