@@ -66,7 +66,6 @@ session_start();
                 <input type="text" name="name" class="input" placeholder="Imię" required>
                 <input type="text" name="lastname" class="input" placeholder="Nazwisko" required>
                 <input type="text" name="title" class="input" placeholder="Tytuł" required>
-                <input type="number" name="count" class="input" min="1" value="1">
                 <input type="submit" value="Dodaj książkę" class="button">
             </form>
         </div>
