@@ -24,6 +24,7 @@ if(isset($_POST['name'])){
     $name = trim($_POST['name']);
     $lastname = trim($_POST['lastname']);
     $title = trim($_POST['title']);
+    $count = $_POST['count'];
 
     $sqlAutor = "SELECT id_autor from autorzy WHERE imie = '$name' AND nazwisko = '$lastname'";
     $existAutor = existInDB($sqlAutor);
@@ -47,7 +48,7 @@ if(isset($_POST['name'])){
         exit();
     }
 
-    $sqlAddBook = "INSERT into ksiazki VALUES (NULL, $titleID, $autorID)";
+    $sqlAddBook = "INSERT into ksiazki VALUES (NULL, $titleID, $autorID, $count)";
 
     if(addToDB($sqlAddBook)){
         header('Location: ../index.php');

@@ -60,15 +60,20 @@ td, th{
     box-shadow: 0 0 1px 1px rgba(0,0,0,.4);
 }
 
-.insert{
+.insert, .hire{
     margin-top: 2rem;
 }
-.insert form{
+.insert form, .hire form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 10px;
+}
+
+select{
+    width:100%;
 }
 .input{
     margin: .4rem 0;
@@ -152,6 +157,7 @@ td, th{
 .library{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     width:100%;
 }
 

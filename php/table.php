@@ -67,7 +67,7 @@
     }
 
     function generateReturnForm($row){
-        if($row['returned_date'] == null){
+        if($row['Data zwrotu'] == null){
             echo '<td class="form-column">
                 <form method="post" action="php/Rental.php" class="form-table">
                     <input type="hidden" name="id_wypozyczenie" value="'.$row['id'].'">
