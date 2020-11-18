@@ -1,6 +1,7 @@
 <?php
 
 require_once 'connect.php';
+checkPermission(2);
 
 if(isset($_POST['id_autor'])){
     $id_autor = $_POST['id_autor'];

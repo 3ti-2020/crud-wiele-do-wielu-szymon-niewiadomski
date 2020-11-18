@@ -1,6 +1,7 @@
 <?php
 
 require_once 'connect.php';
+checkPermission(1);
 
 function existInDB($sql){
     global $db;

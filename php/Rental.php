@@ -34,9 +34,11 @@ if(isset($_POST['action'])){
 
     switch($_POST['action']){
         case 'rent':
+            checkPermission(3);
             echo($rental->rentBook($_POST['id_ksiazka'], $_POST['id_user']));
             break;
         case 'return':
+            checkPermission(4);
             echo($rental->returnBook($_POST['id_wypozyczenie']));
             break;
     }

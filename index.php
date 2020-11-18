@@ -1,5 +1,4 @@
 <?php
-session_start();
     require_once 'php/table.php';
 ?>
 <!DOCTYPE html>
@@ -87,7 +86,7 @@ session_start();
                 </select>
                 <select name="id_user" class="input">
                     <?php
-                        $sql = "SELECT * from users WHERE admin=0";
+                        $sql = "SELECT * from users";
                         $result = $db->query($sql);
                         if($result->num_rows > 0){
                             while($row = $result->fetch_assoc()){
