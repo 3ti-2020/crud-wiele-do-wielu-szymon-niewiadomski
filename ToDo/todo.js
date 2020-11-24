@@ -15,16 +15,20 @@ const todoList = {
     taskInput: document.querySelector('.task-input'),
     addButton: document.querySelector('.add-button'),
     init(){
-        this.addButton.addEventListener('click', ()=>this.addTask());
-    },
-    addTask(){
-        const name = this.taskInput.value;
-        if(name.trim().length == 0) return;
+        this.addTask('Dodać ciasteczka');
+        this.addTask('Wynieść śmieci');
+        this.addButton.addEventListener('click', ()=>{
+            const name = this.taskInput.value;
+            if(name.trim().length == 0) return;
+            this.taskInput.value = "";
 
+            this.addTask(name);
+        });
+    },
+    addTask(name){
         const task = new Task(name);
         this.tasksArray.push(task);
         this.appendTask(task);
-        this.tasksArray.value = "";
     },
     appendTask(task){
         const li = document.createElement('li');
@@ -50,3 +54,4 @@ const todoList = {
 }
 
 todoList.init();
+console.log(document.cookie);

@@ -9,17 +9,36 @@ body{
     display: flex;
     justify-content: center;
     background: orange;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 .container{
     margin: 100px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
 .logo{
     margin: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+}
+.task-input,.add-button{
+    padding: 10px;
+}
+
+.tasks{
+    min-width: 200px;
+    margin-top: 10px;
+}
+.task{
+    width:100%;
+    font-size: 20px;
+    align-items: center;
+    margin-top: 2px;
+}
+
+.remove-button{
+    margin-left: 5px;
+    padding: 5px;
 }
