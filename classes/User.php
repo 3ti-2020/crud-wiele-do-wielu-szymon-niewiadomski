@@ -7,28 +7,63 @@ class User{
     private $username;
     private $password;
     private $role;
-    private $permissions;
+    private $permissions = [];
 
-    public static function find($id){
-        global $db;
-        $sql = "SELECT * FROM users WHERE id=$id";
-        $result = $db->query($sql);
-
-        if($result){
-            if($result->num_rows == 0) return null;
-
-            $data = $result->fetch_assoc();
-            $user = new self($data['id'], $data['id'], $data['id'], $data['id']);
-        } else
-            die($db->error);
+    public static function findById($id){
+        return self::find($sql = "SELECT * FROM users WHERE id=$id");
     }
 
-    public function __construct($id, $username, $password, $role, $permisson){
-        $this->id = $id;
-        $this->username = $username;
-        $this->role = $role;
-        $this->password = $password;
-        $this->permissions = $permissions;
+    public static function findByUsername($username){
+        return self::find($sql = "SELECT * FROM users WHERE username='$username'");
+    }
+
+    private static function find($sql){
+        global $db;
+        $result = $db->query($sql);
+        $user = null;
+
+        if($result){
+            if($result->num_rows == 0) return $user;
+
+            $userdata = $result->fetch_assoc();
+            $userdata['permissions'] = self::getPermissionsFromRole($userdata['role']);
+            $user = new self($userdata);
+
+        } else
+            die($db->error);
+
+        return $user;
+    }
+
+    private static function getPermissionsFromRole($id){
+        global $db;
+        $sql = "SELECT * from permissions_roles WHERE role_id=$id";
+        $result = $db->query($sql);
+        $permissions = [];
+
+        if($result){
+            foreach($result->fetch_all() as $permission){
+                array_push($permissions, $permission[0]);
+            }
+        } else
+            die($db->error);
+
+        return $permission;
+    }
+
+    public function __construct($userdata){
+        $this->id = $userdata['id'];
+        $this->username = $userdata['username'];
+        $this->role = $userdata['role'];
+        $this->password = $userdata['password'];
+        $this->permissions = $userdata['permissions'];
+    }
+
+    public function hasPermission($permission){
+        if(in_array($permission, $this->permissions))
+            return true;
+        else
+            return false;
     }
 
     public function getId(){return $this->id;}
