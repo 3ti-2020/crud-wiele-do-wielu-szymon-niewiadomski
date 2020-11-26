@@ -5,16 +5,18 @@
 }
 
 body{
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     background: orange;
     font-family: Arial, Helvetica, sans-serif;
 
 }
 
 .container{
-    margin: 100px;
+    margin-top: 100px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,22 +33,42 @@ body{
 }
 
 .tasks{
-    min-width: 200px;
+    width: 100%;
     margin-top: 10px;
+    list-style-position: inside;
+    padding: 0 15px;
 }
 .task{
     width:100%;
     font-size: 20px;
     align-items: center;
-    margin-top: 2px;
+    border-top: 1px solid gray;
+    padding: 10px;
 }
 
-.remove-button{
+.task__remove-button{
     margin-left: 5px;
     padding: 5px;
+    background: red;
+    color: white;
+    border: none;
+    transition: background-color 200ms ease-in-out;
 }
 
-.task.doned{
+.task__remove-button:hover{
+    background: rebeccapurple;
+}
+.task__wrapper{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width:calc(100% - 25px);
+}
+.task__name{
+    overflow: hidden;
+}
+
+.task.doned .task__name{
     text-decoration: line-through;
     color: gray;
 }

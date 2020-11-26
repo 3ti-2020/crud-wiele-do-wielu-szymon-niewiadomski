@@ -18,12 +18,11 @@ const todoList = {
     init(){
         this.addTask('Dodać ciasteczka');
         this.addTask('Wynieść śmieci', true);
-        this.addButton.addEventListener('click', ()=>{
-            const name = this.taskInput.value;
-            if(name.trim().length == 0) return;
-            this.taskInput.value = "";
-
-            this.addTask(name);
+        
+        this.addButton.addEventListener('click', this.eventInput.bind(this));
+        this.taskInput.addEventListener('keydown', e=>{
+            if(e.key == 'Enter')
+                this.eventInput();
         });
     },
     addTask(name, doned = false){
@@ -48,6 +47,23 @@ const todoList = {
         li.append(removeButton);
         this.tasksList.append(li);
     },
+    appendTask(task){
+        const li = document.createElement('li');
+        const innerElement = document.querySelector('#templateTask').content.cloneNode(true);
+        li.append(innerElement);
+        li.classList.add('task');
+        li.setAttribute('title', task.name);
+        li.setAttribute('data-id', task.id);
+        li.querySelector('.task__name').innerText = task.name;
+
+        if(task.doned) li.classList.add('doned');
+        li.addEventListener('click', ()=>{ this.switchTask(li); });
+
+        const removeButton = li.querySelector('.task__remove-button');
+        removeButton.addEventListener('click', ()=>{ this.removeTask(li); });
+
+        this.tasksList.append(li);
+    },
     removeTask(li){
         const id = li.getAttribute('data-id');
         li.remove();
@@ -58,6 +74,14 @@ const todoList = {
         const id = li.getAttribute('data-id');
         const task = this.tasksArray.find(task => task.id == id);
         task.doned = !task.doned;
+    },
+    eventInput(){
+        const name = this.taskInput.value;
+        if(name.trim().length == 0) return;
+        this.addTask(name);
+
+        this.taskInput.value ="";
+        this.taskInput.focus();
     }
 }
 
