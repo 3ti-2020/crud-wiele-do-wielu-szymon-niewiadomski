@@ -25,14 +25,14 @@ body{
 }
 
 .question__title{
-    margin: 0 20px;
+    margin: 10px 20px 0 20px;
 }
 .question__date{
     margin: 0 20px;
 }
 
 .question__answers-list{
-    margin: 10px 20px; padding: 10px 0;
+    margin: 10px 20px; padding: 0 0 0 10px;
     list-style-type: upper-alpha; list-style-position: inside;
     border-bottom: 2px dashed rgb(241, 166, 26);
 }
