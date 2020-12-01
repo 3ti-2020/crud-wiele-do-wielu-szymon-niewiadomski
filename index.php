@@ -21,6 +21,7 @@
     <nav class="nav">
         <a href="https://github.com/3ti-2020/crud-wiele-do-wielu-szymon-niewiadomski">Github</a>
         <a href="cards.php">Karty</a>
+        <a href="exam.html">Egzamin</a>
         <?php if(isset($_SESSION['logged'])) echo '<a href="php/logout.php">Wyloguj się</a>'; ?>
     </nav>
     <aside class="aside">
