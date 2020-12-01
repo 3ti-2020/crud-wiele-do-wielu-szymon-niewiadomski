@@ -34,7 +34,7 @@ body{
 .question__answers-list{
     margin: 10px 20px; padding: 10px 0;
     list-style-type: upper-alpha; list-style-position: inside;
-    border-bottom: 2px dashed rgb(241, 166, 26); border-top: 2px dashed  rgb(241, 166, 26);
+    border-bottom: 2px dashed rgb(241, 166, 26);
 }
 
 .question__details{
