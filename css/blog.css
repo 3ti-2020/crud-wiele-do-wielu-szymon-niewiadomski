@@ -1,0 +1,16 @@
+.post{
+    width:500px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,.5);
+    background: orangered;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.post__title, .post__content{
+    padding: 10px;
+}
+
+.post_title{
+    background: red;
+    color: white;
+}
