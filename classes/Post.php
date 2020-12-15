@@ -70,7 +70,7 @@ class Post{
         global $db;
         $sql ="INSERT INTO posts_tags (post_id, tag_id) VALUES ";
         foreach($tags as $tag){
-            $sql .= "(null, {$this->id}, $tag),";
+            $sql .= "({$this->id}, $tag),";
         }
         $sql = substr_replace($sql ,"",-1);
         if(!$db->query($sql))
