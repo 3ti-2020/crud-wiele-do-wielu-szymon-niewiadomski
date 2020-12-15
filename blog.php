@@ -36,9 +36,9 @@
     <aside class="aside">
         <h3 class="aside__header">Nowy post</h3>
         <form action="php/Controllers/BlogController.php" method="post" class="form">
-            <input type="text" name="title" placeholder="Tytuł" class="form__input">
-            <textarea name="content" placeholder="Treść" class="form__input form__input--textarea"></textarea>
-            <select name="post_tags[]" class="form__input form__input--select" multiple >
+            <input type="text" name="title" placeholder="Tytuł" class="form__input" required>
+            <textarea name="content" placeholder="Treść" class="form__input form__input--textarea" required></textarea>
+            <select name="post_tags[]" class="form__input form__input--select" multiple>
                 <?php
                     foreach($tags as $tag){
                         echo "<option value='{$tag->getId()}'>{$tag->getName()}</option>";
@@ -50,7 +50,7 @@
 
         <h3 class="aside__header">Nowe Tagi</h3>
         <form action="php/Controllers/BlogController.php" method="post" class="form">
-            <input type="text" name="tags" placeholder="Tagi oddzielone przecinkami" class="form__input">
+            <input type="text" name="tags" placeholder="Tagi oddzielone przecinkami" class="form__input" required>
             <input type="submit" value="Dodaj" class="form__input form__input--submit">
         </form>
     </aside>
