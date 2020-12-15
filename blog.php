@@ -55,7 +55,7 @@
         </form>
     </aside>
     <main class="main">
-        <a href="blog.php">Wszystkie Posty</a>
+        <a href="blog.php" class="all-posts-link">Wszystkie Posty</a>
         <?php
         foreach($posts as $post){
             $tagsHtml = '';
