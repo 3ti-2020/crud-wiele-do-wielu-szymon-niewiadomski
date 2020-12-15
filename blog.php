@@ -2,7 +2,10 @@
     require_once 'classes/Post.php';
     require_once 'classes/Tag.php';
 
-    $posts = Post::all();
+    if(isset($_GET['tag']))
+        $posts = Post::all($_GET['tag']);
+    else
+        $posts = Post::all();
     $tags = Tag::all();
 ?>
 <!DOCTYPE html>
@@ -52,15 +55,23 @@
         </form>
     </aside>
     <main class="main">
+        <a href="blog.php">Wszystkie Posty</a>
         <?php
         foreach($posts as $post){
+            $tagsHtml = '';
+            foreach($post->getTags() as $tag){
+                $tagsHtml .= "<a href='?tag=$tag' class='post__tag'>#$tag</a>";
+            }
             echo '<div class="post">
                 <div class="post__header">
                     <h3 class="post__title">'.$post->getTitle().'</h3>
                     <div class="post__date">'. date_format(date_create($post->getDate()), 'H:i:s d.m.Y').'</div>
                 </div>
                 <div class="post__content">'.$post->getContent().'</div>
-                <div class="post__tags">Tagi: '.implode(', ', $post->getTags()).'</div>
+                <div class="post__tags">
+                    Tagi: 
+                    '.$tagsHtml.'
+                </div>
             </div>';
         }
         ?>

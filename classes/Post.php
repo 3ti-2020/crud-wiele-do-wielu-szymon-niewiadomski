@@ -7,11 +7,11 @@ class Post{
     private $content;
     private $date;
 
-    public static function all(){
+    public static function all($tag = null){
         global $db;
-        $result = $db->query("SELECT * FROM posts ORDER BY date DESC");
+        $partOfSql = empty($tag) ? '' : "WHERE tags.name='$tag'";
+        $result = $db->query("SELECT distinct posts.* FROM posts LEFT JOIN posts_tags ON posts_tags.post_id = posts.id Left JOIN tags ON tags.id = posts_tags.tag_id $partOfSql ORDER BY date DESC");
         $posts = [];
-
         if($result){
             if($result->num_rows == 0) return $posts;
 
@@ -68,7 +68,7 @@ class Post{
 
     public function setTags($tags){
         global $db;
-        $sql ="INSERT INTO posts_tags VALUES ";
+        $sql ="INSERT INTO posts_tags (post_id, tag_id) VALUES ";
         foreach($tags as $tag){
             $sql .= "(null, {$this->id}, $tag),";
         }

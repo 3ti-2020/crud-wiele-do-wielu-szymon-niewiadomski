@@ -35,6 +35,19 @@
     font-weight: 600;
 }
 
+.post__tag{
+    margin: 0 5px;
+    color: rgb(216, 216, 216);
+}
+
+.post__tag:hover, .all-posts-link:hover{
+    text-decoration:dotted;
+}
+.all-posts-link{
+    color: white;
+    font-size: 20px;
+}
+
 .form{
     display: flex;
     flex-direction: column;
