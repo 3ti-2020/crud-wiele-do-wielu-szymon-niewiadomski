@@ -22,6 +22,8 @@
         <a href="https://github.com/3ti-2020/crud-wiele-do-wielu-szymon-niewiadomski">Github</a>
         <a href="cards.php">Karty</a>
         <a href="exam.html">Egzamin</a>
+        <a href="blog.php">Blog</a>
+
         <?php if(isset($_SESSION['logged'])) echo '<a href="php/logout.php">Wyloguj się</a>'; ?>
     </nav>
     <aside class="aside">
@@ -56,7 +58,7 @@
             </table>
 
         <?php } else{
-            echo '<div class="user">'.$_SESSION['name'].'</div>';
+            echo '<div class="user">'.$_SESSION['user']->getName().'</div>';
         }        
         ?>
         <?php if(isset($_SESSION['logged']) && $_SESSION['admin'] == 1){?>

@@ -1,5 +1,5 @@
 <?php
-require_once 'php/connect.php';
+require_once __DIR__.'/../php/connect.php';
 
 class Post{
     private $id;
@@ -45,7 +45,7 @@ class Post{
     public function getTags(){
         global $db;
         $id =$this->id;
-        $sql = "SELECT * from posts_tags WHERE post_id=$id";
+        $sql = "SELECT name from posts_tags JOIN tags ON tags.id = posts_tags.tag_id WHERE post_id=$id";
         $result = $db->query($sql);
         $tags = [];
 
@@ -64,6 +64,27 @@ class Post{
         $this->title = $postData['title'];
         $this->content = $postData['content'];
         $this->date = $postData['date'];
+    }
+
+    public function setTags($tags){
+        global $db;
+        $sql ="INSERT INTO posts_tags VALUES ";
+        foreach($tags as $tag){
+            $sql .= "(null, $tag, {$this->id}),";
+        }
+        $sql = substr_replace($sql ,"",-1);
+        if(!$db->query($sql))
+            die($db->error);
+    }
+
+    public function save(){
+        global $db;
+        $sql = "INSERT INTO posts VALUES (null, '{$this->title}', '{$this->content}', now())";
+        
+        if(!$db->query($sql))
+            die($db->error);
+
+        $this->id = $db->insert_id;
     }
 
 
