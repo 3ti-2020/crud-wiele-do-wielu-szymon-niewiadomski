@@ -9,7 +9,7 @@ class Post{
 
     public static function all(){
         global $db;
-        $result = $db->query("SELECT * FROM posts");
+        $result = $db->query("SELECT * FROM posts ORDER BY date");
         $posts = [];
 
         if($result){
